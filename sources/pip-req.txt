@@ -24,6 +24,7 @@ Jinja2
 Mako
 MarkupSafe
 Pillow
+Python-Chart
 PyYAML
 Werkzeug
 argparse
@@ -36,6 +37,7 @@ greenlet
 jcconv
 lxml
 mock
+ofxparse
 passlib
 psutil
 psycogreen
@@ -54,6 +56,7 @@ reportlab
 requests
 simplejson
 six
+suds-jurko
 unittest2
 vatnumber
 vobject

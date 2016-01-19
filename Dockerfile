@@ -33,7 +33,7 @@ RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" > /etc/
             python \
                 python-pip \ 
 		python-support \
-                python-imaging \
+                python-imaging python-pyinotify python-renderpm \
                 python-pychart python-libxslt1 xfonts-base xfonts-75dpi \
                 libxrender1 libxext6 fontconfig \
                 python-zsi \
