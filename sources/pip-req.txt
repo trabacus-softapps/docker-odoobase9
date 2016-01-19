@@ -1,8 +1,4 @@
 #### To build wheel archives or to run pip install --upgrade --requirement=pip-req.txt #### Install - sudo apt-get install python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg-dev libfreetype6-dev zlib1g-dev libldap2-dev libsasl2-dev libpq-dev build-essential autoconf libtool pkg-config 
-
-# system
-pip
-wheel
 # xcg addons
 genshi
 graphviz
