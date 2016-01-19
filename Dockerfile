@@ -5,6 +5,9 @@
 FROM softapps/docker-ubuntubase
 MAINTAINER Arun T K <arun.kalikeri@xxxxxxxx.com>
 
+# User root user to install software
+USER root
+
 # generate locales
 RUN locale-gen en_US.UTF-8 && update-locale
 RUN echo 'LANG="en_US.UTF-8"' > /etc/default/locale
@@ -67,7 +70,7 @@ RUN adduser --home=/opt/odoo --disabled-password --gecos "" --shell=/bin/bash od
 # ADD sources for the oe components
 # ADD an URI always gives 600 permission with UID:GID 0 => need to chmod accordingly
 # /!\ carefully select the source archive depending on the version
-ADD https://github.com/trabacus-softapps/odoo/archive/saas-9.tar.gz /opt/odoo/odoo.tar.gz
+ADD https://github.com/odoo/odoo/archive/saas-9.tar.gz /opt/odoo/odoo.tar.gz
 RUN chown odoo:odoo /opt/odoo/odoo.tar.gz
 
 
