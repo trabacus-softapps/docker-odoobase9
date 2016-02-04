@@ -12,10 +12,10 @@ This is important to do in this way (as opposed to a latest nightly build) becau
 
 You may use your own sources simply by binding your local Odoo folder to /opt/odoo/sources/odoo/
 
-Here are the current revisions from https://github.com/trabacus-softapps/odoo/archive/saas-9.tar.gz for each docker tag
+Here are the current revisions from http://nightly.odoo.com/9.0/nightly/src/ for each docker tag
 
     # production grade
-    docker/odoobase:9.0	740a6eadd379cc3fa26aefb9350f1c95b3e05ebd (branch saas-9)
+    docker/odoobase:9.0c 04-FEB-2016
 
 Start Odoo
 ----------
