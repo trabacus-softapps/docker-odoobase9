@@ -15,7 +15,7 @@ You may use your own sources simply by binding your local Odoo folder to /opt/od
 Here are the current revisions from http://nightly.odoo.com/9.0/nightly/src/ for each docker tag
 
     # production grade
-    docker/odoobase:9.0c 04-FEB-2016
+    docker/odoobase:9.0c 07-FEB-2016
 
 Start Odoo
 ----------
