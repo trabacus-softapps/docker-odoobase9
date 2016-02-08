@@ -17,6 +17,11 @@ Here are the current revisions from http://nightly.odoo.com/9.0/nightly/src/ for
     # production grade
     docker/odoobase:9.0c 07-FEB-2016
 
+GeoIP database
+--------------
+Optional GeoIP database to identify Origin of User in case of Website
+Download - wget -N http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz && gunzip GeoLiteCity.dat.gz && mv GeoLiteCity.dat /opt/odoo/var/GeoIP/
+
 Start Odoo
 ----------
 

@@ -87,7 +87,7 @@ RUN /bin/bash -c "mkdir -p /opt/odoo/{bin,etc,sources/odoo/addons,additional_add
         tar -xvf /opt/odoo/odoo.tar.gz --strip 1 && \
         rm /opt/odoo/odoo.tar.gz
 
-RUN /bin/bash -c "mkdir -p /opt/odoo/var/{run,log,egg-cache,ftp}"
+RUN /bin/bash -c "mkdir -p /opt/odoo/var/{run,log,egg-cache,ftp,GeoIP}"
 
 
 # Execution environment
