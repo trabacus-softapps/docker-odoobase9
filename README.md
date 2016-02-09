@@ -1,5 +1,5 @@
-A *production-ready* image for Odoo 9 
-=====================================
+A *production-ready* image for Odoo SAAS-9 
+==========================================
 
 This image weighs just over 1Gb. Keep in mind that Odoo is a very extensive suite of business applications written in Python. We designed this image with built-in external dependencies and almost nothing useless. It is used from development to production on version 9.0 with various community addons.
 
@@ -15,7 +15,7 @@ You may use your own sources simply by binding your local Odoo folder to /opt/od
 Here are the current revisions from http://nightly.odoo.com/9.0/nightly/src/ for each docker tag
 
     # production grade
-    docker/odoobase:9.0c 07-FEB-2016
+    docker/odoobase:SAAS-9.0c 469e04e97c2aa60d9d41bd430e0aeba77ee6f9dd
 
 GeoIP database
 --------------

@@ -74,7 +74,7 @@ RUN adduser --home=/opt/odoo --disabled-password --gecos "" --shell=/bin/bash od
 # ADD sources for the oe components
 # ADD an URI always gives 600 permission with UID:GID 0 => need to chmod accordingly
 # /!\ carefully select the source archive depending on the version
-ADD http://nightly.odoo.com/9.0/nightly/src/odoo_9.0c.latest.tar.gz /opt/odoo/odoo.tar.gz
+ADD https://github.com/odoo/odoo/archive/saas-9.tar.gz /opt/odoo/odoo.tar.gz
 RUN chown odoo:odoo /opt/odoo/odoo.tar.gz
 
 
@@ -93,7 +93,6 @@ RUN /bin/bash -c "mkdir -p /opt/odoo/var/{run,log,egg-cache,ftp,GeoIP}"
 # Execution environment
 USER 0
 ADD sources/odoo.conf /opt/sources/odoo.conf
-ADD sources/openerp-gevent /opt/odoo/sources/odoo/openerp-gevent
 WORKDIR /app
 VOLUME ["/opt/odoo/var", "/opt/odoo/etc", "/opt/odoo/additional_addons", "/opt/odoo/data"]
 # Set the default entrypoint (non overridable) to run when starting the container
