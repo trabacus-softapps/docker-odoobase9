@@ -54,7 +54,7 @@ RUN pip install --upgrade --use-wheel --no-index --pre \
 # these are python dependencies for odoo and "apps" as precompiled wheel packages
 
 RUN pip install --upgrade --use-wheel --no-index --pre \
-        --find-links=https://googledrive.com/host/0Bz-lYS0FYZbIMXFWazlnRFpqbFE \
+        --find-links=https://googledrive.com/host/0Bz-lYS0FYZbIfklDSm90US16S0VjWmpDQUhVOW1GZlVOMUdXb1hENFFBc01BTGpNVE1vZGM \
         --requirement=/opt/sources/pip-req.txt
 
 # install wkhtmltopdf based on QT5
