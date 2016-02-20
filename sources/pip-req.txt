@@ -1,5 +1,5 @@
 #### To build wheel archives (pip wheel --requirement=pip-req.txt --wheel-dir=/tmp/wheelhouse)  or to run pip install --upgrade --requirement=pip-req.txt #### Install - sudo apt-get install python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg-dev libfreetype6-dev zlib1g-dev libldap2-dev libsasl2-dev libpq-dev build-essential autoconf libtool pkg-config 
-# xcg addons
+# additional addons
 genshi
 graphviz
 pywebdav
@@ -15,6 +15,8 @@ authy
 xmltodict
 dnspython
 numpy
+PyJWT
+gcm-client
 # odoo official
 Babel
 Jinja2
