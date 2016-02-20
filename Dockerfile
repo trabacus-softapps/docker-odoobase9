@@ -47,7 +47,7 @@ ADD sources/pip-req.txt /opt/sources/pip-req.txt
 
 # Update pip & wheel
 RUN pip install --upgrade --use-wheel --no-index --pre \
-        --find-links=https://googledrive.com/host/0Bz-lYS0FYZbIMXFWazlnRFpqbFE pip wheel 
+        --find-links=https://googledrive.com/host/0Bz-lYS0FYZbIfklDSm90US16S0VjWmpDQUhVOW1GZlVOMUdXb1hENFFBc01BTGpNVE1vZGM pip wheel 
 
 # use wheels from our public wheelhouse for proper versions of listed packages
 # as described in sourced pip-req.txt
