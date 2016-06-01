@@ -49,6 +49,9 @@ ADD sources/pip-req.txt /opt/sources/pip-req.txt
 RUN pip install --upgrade --use-wheel --no-index --pre \
         --find-links=https://googledrive.com/host/0Bz-lYS0FYZbIfklDSm90US16S0VjWmpDQUhVOW1GZlVOMUdXb1hENFFBc01BTGpNVE1vZGM pip wheel 
 
+# Install eGenix mx Base
+RUN pip install egenix-mx-base
+
 # use wheels from our public wheelhouse for proper versions of listed packages
 # as described in sourced pip-req.txt
 # these are python dependencies for odoo and "apps" as precompiled wheel packages
