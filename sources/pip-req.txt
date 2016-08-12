@@ -17,6 +17,7 @@ dnspython
 numpy
 PyJWT
 gcm-client
+egenix-mx-base
 # odoo official
 Babel
 Jinja2
