@@ -2,28 +2,18 @@
 #Inspiration 2: https://github.com/justnidleguy/
 #Inspiration 3: https://bitbucket.org/xcgd/ubuntu4b
 
-FROM softapps/docker-ubuntubase
+FROM docker pull softapps/docker-ubuntubaseimage
 MAINTAINER Arun T K <arun.kalikeri@xxxxxxxx.com>
 
 # User root user to install software
 USER root
-
-# generate locales
-RUN locale-gen en_US.UTF-8 && update-locale
-RUN echo 'LANG="en_US.UTF-8"' > /etc/default/locale
-
-# add some system packages
-RUN  TERM=linux apt-get update &&  TERM=linux apt-get -y -q install \
-        libterm-readline-perl-perl \
-        dialog sudo curl \
-        && rm -rf /var/lib/apt/lists/*
 
 # Add the PostgreSQL PGP key to verify their Debian packages.
 # It should be the same key as https://www.postgresql.org/media/keys/ACCC4CF8.asc
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8
 
 # Add PostgreSQL's repository. It contains the most recent stable release
-#     of PostgreSQL, ``9.4``.
+#     of PostgreSQL, ``9.5``.
 # install dependencies as distrib packages when system bindings are required
 # some of them extend the basic odoo requirements for a better "apps" compatibility
 # most dependencies are distributed as wheel packages at the next step
@@ -32,22 +22,15 @@ RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" > /etc/
         TERM=linux apt-get -yq install \
             adduser \
             ghostscript \
-            postgresql-client-9.4 \
+            postgresql-client-9.5 \
             python \
-                python-pip \ 
-		python-support \
-                python-imaging python-pyinotify python-renderpm \
-                python-pychart python-libxslt1 xfonts-base xfonts-75dpi \
-                libxrender1 libxext6 fontconfig \
-                python-zsi \
-                python-lasso \
-		rlwrap \
-		&& rm -rf /var/lib/apt/lists/*
-ADD sources/pip-req.txt /opt/sources/pip-req.txt
+                wkhtmltopdf \
+                && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Update pip & wheel
-RUN pip install --upgrade --use-wheel --no-index --pre \
-        --find-links=https://googledrive.com/host/0Bz-lYS0FYZbIfklDSm90US16S0VjWmpDQUhVOW1GZlVOMUdXb1hENFFBc01BTGpNVE1vZGM pip wheel 
+# Install pip & wheel
+RUN curl https://bootstrap.pypa.io/get-pip.py | python
+
+ADD sources/pip-req.txt /opt/sources/pip-req.txt
 
 # use wheels from our public wheelhouse for proper versions of listed packages
 # as described in sourced pip-req.txt
@@ -57,16 +40,12 @@ RUN pip install --upgrade --use-wheel --no-index --pre \
         --find-links=https://googledrive.com/host/0Bz-lYS0FYZbIMXFWazlnRFpqbFE \
         --requirement=/opt/sources/pip-req.txt
 
-# install wkhtmltopdf based on QT5
-ADD http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-trusty-amd64.deb /opt/sources/wkhtmltox.deb
-RUN dpkg -i /opt/sources/wkhtmltox.deb
-
 # Install some deps, lessc and less-plugin-clean-css
 RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-RUN sudo apt-get install -y nodejs \
-	&& rm -rf /var/lib/apt/lists/*
+RUN TERM=linux apt-get install -y nodejs \
+        && rm -rf /var/lib/apt/lists/*
 RUN npm install -g less less-plugin-clean-css \
-	&& npm cache clear
+        && npm cache clear
 
 # create the odoo user
 RUN adduser --home=/opt/odoo --disabled-password --gecos "" --shell=/bin/bash odoo
