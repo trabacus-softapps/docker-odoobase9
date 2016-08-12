@@ -32,6 +32,9 @@ RUN curl https://bootstrap.pypa.io/get-pip.py | python
 
 ADD sources/pip-req.txt /opt/sources/pip-req.txt
 
+# Install eGenix mx Base
+RUN pip install egenix-mx-base
+
 # use wheels from our public wheelhouse for proper versions of listed packages
 # as described in sourced pip-req.txt
 # these are python dependencies for odoo and "apps" as precompiled wheel packages
