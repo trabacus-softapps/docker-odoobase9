@@ -2,7 +2,7 @@
 #Inspiration 2: https://github.com/justnidleguy/
 #Inspiration 3: https://bitbucket.org/xcgd/ubuntu4b
 
-FROM docker pull softapps/docker-ubuntubaseimage
+FROM softapps/docker-ubuntubaseimage
 MAINTAINER Arun T K <arun.kalikeri@xxxxxxxx.com>
 
 # User root user to install software
